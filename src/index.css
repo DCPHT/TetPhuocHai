@@ -1,0 +1,229 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif, 'Offside', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/images/home/BackGroundSmall.png");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+  background-color: #F06F6F;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6rem;
+  font-size: 2em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 0 0 2px 2px;
+  z-index: 2;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.home {
+  
+}
+
+.count-down {
+  color: #DD6262;
+  padding-top: 20rem;
+}
+
+.text-count-down {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.text-count-down-lunar {
+  font-size: 7rem;
+  font-weight: bold;
+}
+
+.title-image {
+  max-width: 85%;
+  height: auto;
+}
+
+.title-image-small {
+  max-width: 25%;
+  height: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* ipad pro*/
+  li {
+    font-size: 2em;
+  }
+
+  #logo {
+    width: 11%;
+  }
+}
+
+@media only screen and (max-width: 812px) {
+  /* iphone X*/
+  li {
+    padding: 1em;    
+  }
+  
+  li span {
+    font-size: 6rem;
+  }
+
+  .my_nav {
+    font-size: 2em;
+  }
+
+  .my_footer {
+    font-size: 2em;
+  }
+
+  #logo {
+    width: 14.5%;
+  }
+}
+
+@media only screen and (max-width: 768px) {  
+  /* ipad */
+  li {
+    padding: 1em;
+  }
+  
+  li span {
+    font-size: 5rem;
+  }
+
+  .my_nav {
+    height: 5rem;
+    font-size: 1.5em;
+  }
+
+  .btn {
+    height: 3rem;
+  }
+
+  #headline {
+    margin-top: 0;
+  }
+  
+  .my_footer {
+    height: 5rem;
+    font-size: 1.5em;
+  }
+
+  #logo {
+    width: 12%;
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  /* galaxy fold */
+  #logo {
+    width: 22%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  /* iphone 6/7/8 plus*/
+  li {
+    font-size: 2em;
+  }
+
+  li span {
+    font-size: 3rem;
+  }
+
+  .my_nav {
+    height: 4rem;
+    font-size: 1em;
+  }
+
+  .btn {
+    height: 2rem;
+  }
+
+  .my_footer {
+    height: 4rem;
+    font-size: 1em;
+  }
+
+  #headline, #endline {
+    font-size: 1.5em;
+  }
+
+  .px-3 {
+    padding: 0 !important;
+  }
+
+  #logo {
+    width: 20%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  /* iphone 6/7/8*/
+  .my_nav {
+    height: 3rem;
+  }
+
+  .btn {
+    height: 1.5rem;
+  }
+
+  .my_footer {
+    height: 3rem;
+    font-size: 0.75em;
+  }
+
+  #headline, #endline {
+    font-size: 1.5em;
+  }
+
+  #text_container {
+    margin-right: 10%;
+  }
+
+  #logo {
+    width: 17%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  /* iphone 5/SE */
+  #text_container {
+    margin-right: 5%;
+  }
+
+  #logo {
+    width: 22%;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  /* Galaxy Fold*/
+  .my_nav {
+    font-size: 0.8em;
+  }
+
+  .my_footer {
+    font-size: 0.55em;
+  }
+
+  #text_container {
+    margin-right: 0;
+  }
+
+  #logo {
+    width: 23%;
+  }
+}
