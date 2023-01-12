@@ -1,15 +1,22 @@
 import logo from './logo.svg';
 import styles from './App.module.css';
 import Header from './components/Header';
-import Home from './components/home/Home';
-import Firework from './components/Firework';
-import Sound from './components/Sound';
+import { Route, Routes } from '@solidjs/router';
+import { lazy } from 'solid-js';
+
+const Home = lazy(() => import('./components/home/Home'))
+const Firework= lazy(() => import('./components/Firework'))
+const Sound= lazy(() => import('./components/Sound'))
 
 function App() {
   return (
     <div class='container-fluid'>
       <Header />
-      <Home />
+      <Routes>
+        <Route path="/" component={Home}/>
+        <Route path="/calendar" component={Firework}/>
+        <Route path="/blog" component={Sound}/>
+      </Routes>      
     </div>
   );
 }

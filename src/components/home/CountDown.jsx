@@ -1,4 +1,4 @@
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal, For, onCleanup } from "solid-js";
 import Firework from "../Firework";
 import Sound from "../Sound";
 
@@ -39,43 +39,64 @@ const timeBetweenDates = (date) => {
 };
 
 const CountDown = () => {
-    const date = "Jan 22 2023"
+    const date = "Jan 13 2023 01:49:50"
     const [timerDetails, setTimerDetails] = createSignal(
-        timeBetweenDates(date).timeData
+        timeBetweenDates(date)
     );
     const timer = setInterval(() => {
-        setTimerDetails(timeBetweenDates(date).timeData);
+        setTimerDetails(timeBetweenDates(date))
     }, 1000);
 
     onCleanup(() => clearInterval(timer));
 
     return (
         <div>
-            {timeBetweenDates(date).difference > 0 ?
-                (<div class="d-flex flex-row justify-content-evenly count-down">
-                    <div class="text-center">
-                        <div class="text-count-down">{timerDetails().days}</div>
-                        <div class="text-count-down">Ngày</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-count-down">{timerDetails().hours}</div>
-                        <div class="text-count-down">Giờ</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-count-down">{timerDetails().minutes}</div>
-                        <div class="text-count-down">Phút</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-count-down">{timerDetails().seconds}</div>
-                        <div class="text-count-down">Giây</div>
-                    </div>
-                </div>)
-                : (<div class="d-flex flex-row justify-content-evenly count-down text-count-down-lunar">
+            {timerDetails().difference >= 0 ?
+                ((timerDetails().timeData.days === "00" &&
+                    timerDetails().timeData.hours === "00" &&
+                    timerDetails().timeData.minutes === "00" &&
+                    timerDetails().timeData.seconds <= 10) ?
+                    (
+                        <div class="d-flex flex-row justify-content-evenly count-down count-down-10">
+                            <span class="cd-number cd-number-ten text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-nine text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-eight text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-seven text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-six text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-five text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-four text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-three text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-two text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-one text-count-down-10">{timerDetails().timeData.seconds}</span>
+                            <span class="cd-number cd-number-zero text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        </div>
+                    )
+                    :
+                    (<div class="d-flex flex-row justify-content-evenly count-down">
+                        <div class="text-center">
+                            <div class="text-count-down">{timerDetails().timeData.days}</div>
+                            <div class="text-count-down">Ngày</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-count-down">{timerDetails().timeData.hours}</div>
+                            <div class="text-count-down">Giờ</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-count-down">{timerDetails().timeData.minutes}</div>
+                            <div class="text-count-down">Phút</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-count-down">{timerDetails().timeData.seconds}</div>
+                            <div class="text-count-down">Giây</div>
+                        </div>
+                    </div>)
+                )
+                :
+                (<div class="d-flex flex-row justify-content-evenly count-down text-count-down-lunar">
                     CHÚC MỪNG NĂM MỚI
                     <Firework />
-                    <Sound />
-                </div>
-                )
+                    {/* <Sound /> */}
+                </div>)
             }
         </div>
 
