@@ -1,6 +1,7 @@
 import { createSignal, For, onCleanup } from "solid-js";
 import Firework from "../Firework";
 import Sound from "../Sound";
+import "./css/CountDown10.css"
 
 const timeBetweenDates = (date) => {
     const validFromDate = new Date();
@@ -39,7 +40,7 @@ const timeBetweenDates = (date) => {
 };
 
 const CountDown = () => {
-    const date = "Jan 13 2023 01:49:50"
+    const date = "Jan 16 2023"
     const [timerDetails, setTimerDetails] = createSignal(
         timeBetweenDates(date)
     );

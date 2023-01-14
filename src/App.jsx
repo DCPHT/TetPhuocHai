@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import Header from './components/Header';
 import { Route, Routes } from '@solidjs/router';
 import { lazy } from 'solid-js';
+import Footer from './components/Footer';
 
 const Home = lazy(() => import('./components/home/Home'))
 const Firework= lazy(() => import('./components/Firework'))
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" component={Home}/>
         <Route path="/calendar" component={Firework}/>
         <Route path="/blog" component={Sound}/>
-      </Routes>      
+      </Routes>   
+      <Footer />   
     </div>
   );
 }

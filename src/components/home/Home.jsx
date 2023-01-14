@@ -9,19 +9,23 @@ const Home = () => {
             <Title />
             <CountDown />
             <Content />
-            <div>
-            <img src={LuckyCoin}
+            <div class="col-2 text-end"
                 style={{
                     position: "absolute",
-                    top: "10px",
-                    right: "10px",
-                    bottom:"100px",
-                    "z-index":"-1",
-                    "margin-right":"-12px",
+                    top: "10rem",
+                    left:"-7.7rem",
+                    "z-index": "-1",
+                    height: "1500px"
                 }}
-            />
+            >
+                <img src={LuckyCoin}
+                    style={{
+                        width: "100%",
+                        height: "100%"
+                    }}
+                />
             </div>
-        </div>
+        </div >
     )
 }
 
