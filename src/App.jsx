@@ -4,21 +4,21 @@ import Header from './components/Header';
 import { Route, Routes } from '@solidjs/router';
 import { lazy } from 'solid-js';
 import Footer from './components/Footer';
+import Title from './components/Title';
 
 const Home = lazy(() => import('./components/home/Home'))
-const Firework= lazy(() => import('./components/Firework'))
-const Sound= lazy(() => import('./components/Sound'))
+const Firework = lazy(() => import('./components/Firework'))
+const Sound = lazy(() => import('./components/Sound'))
 
 function App() {
   return (
-    <div class='container-fluid'>
+    <div>
       <Header />
+      <Title />
       <Routes>
-        <Route path="/" component={Home}/>
-        <Route path="/calendar" component={Firework}/>
-        <Route path="/blog" component={Sound}/>
-      </Routes>   
-      <Footer />   
+        <Route path="/" component={Home} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

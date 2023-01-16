@@ -1,0 +1,1 @@
+import{t as e}from"./index-23389314.js";const o=e('<div hidden><iframe src="https://www.youtube.com/embed/khPT2g018Ws?autoplay=1" allow="autoplay"></iframe></div>'),a=()=>(()=>{const t=o.cloneNode(!0);return t.firstChild,t})();export{a as default};

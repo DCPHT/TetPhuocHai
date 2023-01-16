@@ -1,6 +1,7 @@
 import { createSignal, For, onCleanup } from "solid-js";
 import Firework from "../Firework";
 import Sound from "../Sound";
+import Content from "./Content";
 import "./css/CountDown10.css"
 
 const timeBetweenDates = (date) => {
@@ -40,7 +41,7 @@ const timeBetweenDates = (date) => {
 };
 
 const CountDown = () => {
-    const date = "Jan 16 2023"
+    const date = "Jan 22 2023"
     const [timerDetails, setTimerDetails] = createSignal(
         timeBetweenDates(date)
     );
@@ -57,50 +58,54 @@ const CountDown = () => {
                     timerDetails().timeData.hours === "00" &&
                     timerDetails().timeData.minutes === "00" &&
                     timerDetails().timeData.seconds <= 10) ?
-                    (
-                        <div class="d-flex flex-row justify-content-evenly count-down count-down-10">
-                            <span class="cd-number cd-number-ten text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-nine text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-eight text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-seven text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-six text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-five text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-four text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-three text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-two text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-one text-count-down-10">{timerDetails().timeData.seconds}</span>
-                            <span class="cd-number cd-number-zero text-count-down-10">{timerDetails().timeData.seconds}</span>
-                        </div>
-                    )
+                    (<div class="d-flex flex-row justify-content-evenly count-down count-down-10">
+                        <span class="cd-number cd-number-ten text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-nine text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-eight text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-seven text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-six text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-five text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-four text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-three text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-two text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-one text-count-down-10">{timerDetails().timeData.seconds}</span>
+                        <span class="cd-number cd-number-zero text-count-down-10">{timerDetails().timeData.seconds}</span>
+                    </div>)
                     :
-                    (<div class="d-flex flex-row justify-content-evenly count-down">
-                        <div class="text-center">
-                            <div class="text-count-down">{timerDetails().timeData.days}</div>
-                            <div class="text-count-down">Ngày</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-count-down">{timerDetails().timeData.hours}</div>
-                            <div class="text-count-down">Giờ</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-count-down">{timerDetails().timeData.minutes}</div>
-                            <div class="text-count-down">Phút</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-count-down">{timerDetails().timeData.seconds}</div>
-                            <div class="text-count-down">Giây</div>
+                    (<div class="container-fluid count-down">
+                        <div class="row">
+                            <div class="col text-center">
+                                <div class="text-count-down">{timerDetails().timeData.days}</div>
+                                <div class="text-count-down">Ngày</div>
+                            </div>
+                            <div class="col text-center">
+                                <div class="text-count-down">{timerDetails().timeData.hours}</div>
+                                <div class="text-count-down">Giờ</div>
+                            </div>
+                            <div class="col text-center">
+                                <div class="text-count-down">{timerDetails().timeData.minutes}</div>
+                                <div class="text-count-down">Phút</div>
+                            </div>
+                            <div class="col text-center">
+                                <div class="text-count-down">{timerDetails().timeData.seconds}</div>
+                                <div class="text-count-down">Giây</div>
+                            </div>
                         </div>
                     </div>)
                 )
                 :
-                (<div class="d-flex flex-row justify-content-evenly count-down text-count-down-lunar">
-                    CHÚC MỪNG NĂM MỚI
-                    <Firework />
-                    {/* <Sound /> */}
+                (<div class="container-fluid count-down">
+                    <div class="row text-count-down-lunar">
+                        <div class="col text-center">CHÚC</div>
+                        <div class="col text-center">MỪNG</div>
+                        <div class="col text-center">NĂM</div>
+                        <div class="col text-center">MỚI</div>
+                        <Firework />
+                        <Sound />
+                    </div>
                 </div>)
             }
         </div>
-
     )
 }
 
